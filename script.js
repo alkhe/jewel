@@ -8,6 +8,7 @@ Jewel.Load = function() {
 	txt.SetText("Default Text");
 	doc.Add(btn);
 	doc.Add(btn2);
+	doc.Add(new Jewel.Line());
 	doc.Add(txt);
 	doc.Invalidate();
 }

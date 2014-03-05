@@ -14,6 +14,12 @@ var Jewel = {
 		this.__text = "";
 	},
 
+	Line: function() {
+		this.HTML = function() {
+			return "<br />";
+		}
+	},
+
 	Button: function() {
 		this.__identifier = "button";
 		this.__type = "'button'";
