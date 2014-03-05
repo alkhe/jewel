@@ -37,3 +37,11 @@ function JViewport() {
 function paintBody(textString) {
 	document.body.innerHTML = textString;
 }
+
+window.onload = function() {
+	load();
+};
+
+function load() {
+
+}
