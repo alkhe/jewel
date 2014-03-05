@@ -1,32 +1,49 @@
 var Jewel = {
 	Control: function() {
-		this.__identifier = "control";
+		this.__identifier = "";
+		this.__text = "";
+	},
+
+	DivId: function() {
+		this.__identifier = "";
+		this.__text = "";
+	},
+
+	DivClass: function() {
+		this.__identifier = "";
 		this.__text = "";
 	},
 
 	Button: function() {
-		this.__type = "button";
-		this.__extra = "type='button'";
+		this.__identifier = "button";
+		this.__type = "'button'";
 		this.__options = "";
 		this.__text = "";
+		this.__events = new Array();
 		this.SetText = function(textString) {
 			this.__text = textString;
 		};
+		this.AddEventHandler = function(event, e) {
+		};
 		this.HTML = function() {
-			return "<" + this.__type + " " + this.__extra + " " + this.__options + ">" + this.__text + "</" + this.__type + ">";
+			return (
+				"<" + this.__identifier + " type=" + this.__type + " " + this.__options + ">" +
+				this.__text +
+				"</" + this.__identifier + ">"
+				);
 		}
 	},
 
-	TextBox: function() {
-		this.__type = "button";
-		this.__extra = "type='button'";
+	Textbox: function() {
+		this.__identifier = "input";
+		this.__type = "'text'";
 		this.__options = "";
 		this.__text = "";
 		this.SetText = function(textString) {
 			this.__text = textString;
 		};
 		this.HTML = function() {
-			return "<" + this.__type + " " + this.__extra + " " + this.__options + ">" + this.__text + "</" + this.__type + ">";
+			return ("<" + this.__identifier + " type=" + this.__type + " " + this.__options + " value=" + this.__text + "/>");
 		}
 	},
 
@@ -50,6 +67,7 @@ var Jewel = {
 
 	PaintBody: function(textString) {
 		document.body.innerHTML = textString;
+		console.log("PaintBody");
 	},
 
 	Load: function() {
@@ -58,5 +76,6 @@ var Jewel = {
 };
 
 window.onload = function() {
+	console.log("Jewel.Load");
 	Jewel.Load();
 };
