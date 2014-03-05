@@ -1,61 +1,61 @@
 var Jewel = {
-	JControl: function() {
+	Control: function() {
 		this.__identifier = "control";
 		this.__text = "";
-	}
+	},
 
-	JButton:: function() {
+	Button: function() {
 		this.__type = "button";
 		this.__extra = "type='button'";
 		this.__options = "";
 		this.__text = "";
-		this.setText = function(textString) {
+		this.SetText = function(textString) {
 			this.__text = textString;
 		};
-		this.html = function() {
+		this.HTML = function() {
 			return "<" + this.__type + " " + this.__extra + " " + this.__options + ">" + this.__text + "</" + this.__type + ">";
 		}
-	}
+	},
 
-	JTextBox: function() {
+	TextBox: function() {
 		this.__type = "button";
 		this.__extra = "type='button'";
 		this.__options = "";
 		this.__text = "";
-		this.setText = function(textString) {
+		this.SetText = function(textString) {
 			this.__text = textString;
 		};
-		this.html = function() {
+		this.HTML = function() {
 			return "<" + this.__type + " " + this.__extra + " " + this.__options + ">" + this.__text + "</" + this.__type + ">";
 		}
-	}
+	},
 
-	JViewport: function() {
+	Viewport: function() {
 		this.__controls = new Array();
-		this.add = function(control) {
+		this.Add = function(control) {
 			this.__controls.push(control);
 		}
-		this.invalidate = function() {
+		this.Invalidate = function() {
 			this.__paint();
 		}
 		this.__paint = function() {
 			var content = "";
 			var arrayLength = this.__controls.length;
 			for (var i = 0; i < arrayLength; i++) {
-				content += this.__controls[i].html();
+				content += this.__controls[i].HTML();
 			}
-			paintBody(content);
+			Jewel.PaintBody(content);
 		}
-	}
+	},
 
-	paintBody: function(textString) {
+	PaintBody: function(textString) {
 		document.body.innerHTML = textString;
-	}
+	},
 
 	Load: function() {
 
 	}
-}
+};
 
 window.onload = function() {
 	Jewel.Load();
