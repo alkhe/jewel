@@ -1,42 +1,42 @@
-var doc = new Jewel.Viewport;
-
-var bAddTextboxes = new Jewel.Button;
-var bHello = new Jewel.Button;
-var bChangeText = new Jewel.Button;
-var tDefault = new Jewel.Textbox;
-
-Jewel.Load = function() {
-
-	bAddTextboxes.SetText("Add 5 Textboxes");
-	bAddTextboxes.AddEvent("onclick", 'addTextBoxes(5)');
-	bHello.SetText("Hello");
-	bHello.AddEvent("onclick", 'hello()');
-	bChangeText.SetText("1");
-	bChangeText.AddEvent("onclick", 'incrementText(bChangeText)');
-	tDefault.SetText("Default Text");
-
-	doc.Add(bAddTextboxes);
-	doc.Add(bHello);
-	doc.Add(new Jewel.Line);
-	doc.Add(tDefault);
-	doc.Add(bChangeText);
-
-	doc.Invalidate();
-}
-
-function addTextBoxes(textboxes) {
-	doc.Add(new Jewel.Line);
-	for (var j = 0; j < textboxes; j++) {
-		doc.Add(new Jewel.Textbox);
-	}
-	doc.Invalidate();
-}
-
-function hello() {
-	alert('Hello!');
-}
-
-function incrementText(control) {
-	control.SetText(parseInt(control.GetText()) + 1);
-	doc.Invalidate();
-}
+var doc = new Jewel.Viewport();
+Jewel(function() {
+	
+	// Elements
+	var button1 = new Jewel.Button("Button 1");
+	var button2 = new Jewel.Button("Button 2!");
+	var textbox1 = new Jewel.TextBox("Default text");
+	var textbox2 = new Jewel.TextBox("Default text");
+	
+	// Text
+	textbox2.SetText("Wasopdijfaospdf");
+	
+	// Events
+	button1.AddEvent("click",button1_click);
+	button2.AddEvent("click",button2_click);
+	
+	// Adding all
+	doc.Add(button1);
+	doc.Add(button2);
+	doc.Add(new Jewel.Text("Hello world!"));
+	doc.Add(textbox1);
+	doc.Add(textbox2);
+	
+	Jewel.Add(doc);
+	
+	Jewel.Paint();
+	
+	
+	
+	// Event Listeners
+	function button1_click(e) {
+		doc.Add(new Jewel.Text());
+		for (var i=0; i<5; i++) {
+			doc.Add(new Jewel.TextBox());
+		}
+		Jewel.Update();
+	};
+	
+	function button2_click(e) {
+		alert("Hello!");
+	};
+});
