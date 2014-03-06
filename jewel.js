@@ -29,11 +29,21 @@ var Jewel = {
 		this.SetText = function(textString) {
 			this.__text = textString;
 		};
-		this.AddEventHandler = function(event, e) {
+		this.AddEvent = function(event, callback) {
+			this.__events.push(event + "=" + callback);
+			console.log("pushed");
 		};
+		this.GetEvents = function() {
+			var events = "";
+			var arrayLength = this.__events.length;
+			for (var i = 0; i < arrayLength; i++) {
+				events += this.__events[i];
+			}
+			return events;
+		}
 		this.HTML = function() {
 			return (
-				"<" + this.__identifier + " type=" + this.__type + " " + this.__options + ">" +
+				"<" + this.__identifier + " type=" + this.__type + " " + this.__options + " " + this.GetEvents() + ">" +
 				this.__text +
 				"</" + this.__identifier + ">"
 				);
@@ -49,7 +59,7 @@ var Jewel = {
 			this.__text = textString;
 		};
 		this.HTML = function() {
-			return ("<" + this.__identifier + " type=" + this.__type + " " + this.__options + " value=" + this.__text + "/>");
+			return ("<" + this.__identifier + " type=" + this.__type + " " + this.__options + " value=\"" + this.__text + "\"/>");
 		}
 	},
 
