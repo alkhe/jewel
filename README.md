@@ -20,7 +20,7 @@ First, a Viewport can be created. Currently, the Viewport only serves as a handl
 
 var doc = new Jewel.Viewport();
 
-All of the "onload" procedures can be placed in the Jewel.Load callback.
+//All of the "onload" procedures can be placed in the Jewel.Load callback.
 
 Jewel.Load = function() {
 	var btn1 = new Jewel.Button();
