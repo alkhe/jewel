@@ -1,29 +1,42 @@
-var doc = new Jewel.Viewport();
+var doc = new Jewel.Viewport;
+
+var bAddTextboxes = new Jewel.Button;
+var bHello = new Jewel.Button;
+var bChangeText = new Jewel.Button;
+var tDefault = new Jewel.Textbox;
 
 Jewel.Load = function() {
-	var btn1 = new Jewel.Button();
-	var btn2 = new Jewel.Button();
-	var txt = new Jewel.Textbox();
-	btn1.SetText("Add 5 Textboxes");
-	btn1.AddEvent("onclick", 'btn1_click()');
-	btn2.SetText("Hello");
-	btn2.AddEvent("onclick", 'btn2_click()');
-	txt.SetText("Default Text");
-	doc.Add(btn1);
-	doc.Add(btn2);
-	doc.Add(new Jewel.Line());
-	doc.Add(txt);
+
+	bAddTextboxes.SetText("Add 5 Textboxes");
+	bAddTextboxes.AddEvent("onclick", 'addTextBoxes(5)');
+	bHello.SetText("Hello");
+	bHello.AddEvent("onclick", 'hello()');
+	bChangeText.SetText("1");
+	bChangeText.AddEvent("onclick", 'incrementText(bChangeText)');
+	tDefault.SetText("Default Text");
+
+	doc.Add(bAddTextboxes);
+	doc.Add(bHello);
+	doc.Add(new Jewel.Line);
+	doc.Add(tDefault);
+	doc.Add(bChangeText);
+
 	doc.Invalidate();
 }
 
-function btn1_click() {
-	doc.Add(new Jewel.Line());
-	for (var j = 0; j < 5; j++) {
-		doc.Add(new Jewel.Textbox());
+function addTextBoxes(textboxes) {
+	doc.Add(new Jewel.Line);
+	for (var j = 0; j < textboxes; j++) {
+		doc.Add(new Jewel.Textbox);
 	}
 	doc.Invalidate();
 }
 
-function btn2_click() {
+function hello() {
 	alert('Hello!');
+}
+
+function incrementText(control) {
+	control.SetText(parseInt(control.GetText()) + 1);
+	doc.Invalidate();
 }

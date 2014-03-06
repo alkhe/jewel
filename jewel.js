@@ -28,11 +28,14 @@ var Jewel = {
 		this.__events = new Array();
 		this.SetText = function(textString) {
 			this.__text = textString;
-		};
+		}
+		this.GetText = function() {
+			return this.__text;
+		}
 		this.AddEvent = function(event, callback) {
 			this.__events.push(event + "=" + callback);
 			console.log("pushed");
-		};
+		}
 		this.GetEvents = function() {
 			var events = "";
 			var arrayLength = this.__events.length;
@@ -57,7 +60,7 @@ var Jewel = {
 		this.__text = "";
 		this.SetText = function(textString) {
 			this.__text = textString;
-		};
+		}
 		this.HTML = function() {
 			return ("<" + this.__identifier + " type=" + this.__type + " " + this.__options + " value=\"" + this.__text + "\"/>");
 		}
