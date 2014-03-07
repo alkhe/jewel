@@ -1,7 +1,7 @@
 import os
 
 if __name__=="__main__":
-	outputFile = "../lib/Jewel.js";
+	outputFile = "../lib/jewel.js";
 	fout = open(outputFile,"w");
 	stack = ["."]
 	while len(stack)>0:
@@ -17,7 +17,4 @@ if __name__=="__main__":
 				fout.write(line)
 			fout.write("\n\n")
 			fin.close()
-	
 	fout.close();
-	print "Wrote all to %s" % outputFile
-	
