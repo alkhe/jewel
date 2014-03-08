@@ -22,13 +22,18 @@ Jewel.Component.prototype = {
 		});
 	},
 
+	/*
 	SetStyle : function(key, value) {
 		this.__styles.push({
 			key : key,
 			value : value
 		});
-	},
+	},*/
 	
+	SetStyle : function(styles) {
+		this.__styles = styles;
+	},
+
 	Paint : function() {
 		this.__element = document.createElement(this.__identifier);
 		this.Update();
@@ -42,7 +47,7 @@ Jewel.Component.prototype = {
 		var styles = this.__styles;
 
 		for (var i = 0, l = styles.length; i < l; i++) {
-			element.style[styles[i].key] = styles[i].value;
+			element.style[styles[i][0]] = styles[i][1];
 		}
 
 		var events = this.__events;
