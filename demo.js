@@ -25,7 +25,7 @@ Jewel(function() {
 	frontend.Add(bCustom);
 	frontend.Add(bHello);
 	frontend.Add(new Jewel.Atom);
-	frontend.Add(new Jewel.Span("Click to increment ->"));
+	frontend.Add(new Jewel.InlineAtom("Click to increment ->"));
 	frontend.Add(bIncrement);
 	frontend.Add(new Jewel.Atom);
 	frontend.Add(tTextbox);
