@@ -3,7 +3,10 @@ Jewel(function() {
 	// Elements
 	var bAddTextboxes = new Jewel.Button("Add 5 Textboxes");
 	var bHello = new Jewel.Button("Hello");
-	var bTextbox = new Jewel.TextBox("Default text");
+	var bTextbox = new Jewel.TextBox();
+
+	// Member Functions
+	bTextbox.SetText("New text");
 	
 	// Events
 	bAddTextboxes.AddEvent("click", addTextboxes);
