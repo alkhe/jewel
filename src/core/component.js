@@ -22,16 +22,12 @@ Jewel.Component.prototype = {
 		});
 	},
 
-	/*
-	SetStyle : function(key, value) {
-		this.__styles.push({
-			key : key,
-			value : value
-		});
-	},*/
-	
 	SetStyle : function(styles) {
 		this.__styles = styles;
+	},
+
+	GetStyle: function() {
+		return this.__styles;
 	},
 
 	Paint : function() {

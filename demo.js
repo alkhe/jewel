@@ -11,14 +11,6 @@ Jewel(function() {
 	var bCustom = new Jewel.Atom;
 
 	// CSS Styles
-	/*
-	bIncrement.SetStyle("height", "23px");
-	bIncrement.SetStyle("width", "100px");
-	bIncrement.SetStyle("background", "#606060");
-	bIncrement.SetStyle("border", "1px solid #202020");
-	bIncrement.SetStyle("color", "#DEDEDE");
-	bIncrement.SetStyle("border-radius", "3px");
-	*/
 	bIncrement.SetStyle([
 		["height", "23px"],
 		["width", "100px"]
