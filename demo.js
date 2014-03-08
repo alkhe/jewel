@@ -1,4 +1,4 @@
-var doc = new Jewel.Viewport();
+var doc = new Jewel.Container();
 Jewel(function() {
 	// Elements
 	var bAddTextboxes = new Jewel.Button("Add 5 Textboxes");

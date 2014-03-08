@@ -16,9 +16,9 @@ To create a simple webpage, the following is all that needs to be in the HTML fi
 
 Everything can then be managed in the JavaScript file.
 
-First, a Viewport can be created. Currently, the Viewport only serves as a handler to the body.
+First, a Container can be created. Currently, the Container only serves as a handler to the body.
 
-var doc = new Jewel.Viewport();
+var doc = new Jewel.Container();
 
 //All of the "onload" procedures can be placed in the Jewel.Load callback.
 

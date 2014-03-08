@@ -1,9 +1,9 @@
-Jewel.Viewport = function() {
+Jewel.Container = function() {
 	this.__controls = [];
 	this.__element = undefined;
 };
 
-Jewel.Viewport.prototype = {
+Jewel.Container.prototype = {
 	Add : function(control) {
 		if (this.__controls.indexOf(control) < 0) {
 			this.__controls.push(control);

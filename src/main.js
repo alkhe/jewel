@@ -4,37 +4,37 @@ window.addEventListener("load", function() {
 
 var Jewel = function(callback) {
 	Jewel.__callback = callback;
-	Jewel.__viewports = [];
+	Jewel.__containers = [];
 };
 
 Jewel.Load = function() {
 	Jewel.__callback();
 };
 
-Jewel.Add = function(viewport) {
-	if (Jewel.__viewports.indexOf(viewport) < 0) {
-		Jewel.__viewports.push(viewport);
+Jewel.Add = function(container) {
+	if (Jewel.__containers.indexOf(container) < 0) {
+		Jewel.__containers.push(container);
 	}
 };
 
 Jewel.Paint = function() {
 	console.log("Paint");
-	var viewports = Jewel.__viewports;
-	for (var i = 0, l = viewports.length; i < l; i++) {
-		if (document.body.contains(viewports[i].__element)) {
-			document.body.removeChild(viewports[i].__element);
+	var containers = Jewel.__containers;
+	for (var i = 0, l = containers.length; i < l; i++) {
+		if (document.body.contains(containers[i].__element)) {
+			document.body.removeChild(containers[i].__element);
 		}
-		viewports[i].Paint();
+		containers[i].Paint();
 		
-		if (!document.body.contains(viewports[i].__element)) {
-			document.body.appendChild(viewports[i].__element);
+		if (!document.body.contains(containers[i].__element)) {
+			document.body.appendChild(containers[i].__element);
 		}
 	}
 };
 
 Jewel.Update = function() {
-	var viewports = Jewel.__viewports;
-	for (var i = 0, l = viewports.length; i < l; i++) {
-		viewports[i].Update();
+	var containers = Jewel.__containers;
+	for (var i = 0, l = containers.length; i < l; i++) {
+		containers[i].Update();
 	}
 };
