@@ -11,8 +11,8 @@ Jewel(function() {
 	textbox2.SetText("Wasopdijfaospdf");
 	
 	// Events
-	button1.AddEvent("click",button1_click);
-	button2.AddEvent("click",button2_click);
+	button1.AddEvent("click", button1_click);
+	button2.AddEvent("click", button2_click);
 	
 	// Adding all
 	doc.Add(button1);
