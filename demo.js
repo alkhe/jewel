@@ -1,33 +1,26 @@
 var doc = new Jewel.Viewport();
 Jewel(function() {
-		// Elements
-	var button1 = new Jewel.Button("Add 5 Textboxes");
-	var button2 = new Jewel.Button("Hello");
-	var textbox1 = new Jewel.TextBox("Default text");
-	var textbox2 = new Jewel.TextBox("Default text");
-	
-	// Text
-	textbox2.SetText("Default Text");
+	// Elements
+	var bAddTextboxes = new Jewel.Button("Add 5 Textboxes");
+	var bHello = new Jewel.Button("Hello");
+	var bTextbox = new Jewel.TextBox("Default text");
 	
 	// Events
-	button1.AddEvent("click", button1_click);
-	button2.AddEvent("click", button2_click);
+	bAddTextboxes.AddEvent("click", addTextboxes);
+	bHello.AddEvent("click", greet);
 	
 	// Adding all
-	doc.Add(button1);
-	doc.Add(button2);
+	doc.Add(bAddTextboxes);
+	doc.Add(bHello);
 	doc.Add(new Jewel.Atom("Hello world!"));
-	doc.Add(textbox1);
-	doc.Add(textbox2);
+	doc.Add(bTextbox);
 	
 	Jewel.Add(doc);
 	
 	Jewel.Paint();
 	
-	
-	
 	// Event Listeners
-	function button1_click(e) {
+	function addTextboxes(e) {
 		doc.Add(new Jewel.Text);
 		for (var i = 0; i < 5; i++) {
 			doc.Add(new Jewel.TextBox);
@@ -35,7 +28,7 @@ Jewel(function() {
 		Jewel.Update();
 	}
 	
-	function button2_click(e) {
+	function greet(e) {
 		alert("Hello!");
 	}
 });
