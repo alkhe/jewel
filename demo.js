@@ -1,37 +1,48 @@
-var doc = new Jewel.Container();
+var frontend = new Jewel.Container;
+
 Jewel(function() {
-	// Elements
+	// Frontend Elements
 	var bAddTextboxes = new Jewel.Button("Add 5 Textboxes");
 	var bHello = new Jewel.Button("Hello");
-	var bTextbox = new Jewel.TextBox();
+	var tTextbox = new Jewel.TextBox("Default text");
+	var bIncrement = new Jewel.Button;
 
 	// Member Functions
-	bTextbox.SetText("New text");
+	bIncrement.SetText("1");
 	
 	// Events
 	bAddTextboxes.AddEvent("click", addTextboxes);
 	bHello.AddEvent("click", greet);
+	bIncrement.AddEvent("click", increment);
 	
-	// Adding all
-	doc.Add(bAddTextboxes);
-	doc.Add(bHello);
-	doc.Add(new Jewel.Atom("Hello world!"));
-	doc.Add(bTextbox);
+	// Adding To Container
+	frontend.Add(bAddTextboxes);
+	frontend.Add(bHello);
+	frontend.Add(new Jewel.Atom);
+	frontend.Add(new Jewel.InlineAtom("Click to increment ->"));
+	frontend.Add(bIncrement);
+	frontend.Add(new Jewel.Atom);
+	frontend.Add(tTextbox);
 	
-	Jewel.Add(doc);
+	Jewel.Add(frontend);
 	
 	Jewel.Paint();
 	
 	// Event Listeners
 	function addTextboxes(e) {
-		doc.Add(new Jewel.Atom);
+		frontend.Add(new Jewel.Atom);
 		for (var i = 0; i < 5; i++) {
-			doc.Add(new Jewel.TextBox);
+			frontend.Add(new Jewel.TextBox);
 		}
-		Jewel.Update();
+		frontend.Update();
 	}
 	
 	function greet(e) {
 		alert("Hello!");
+	}
+
+	function increment(e) {
+		bIncrement.SetText(parseInt(bIncrement.GetText()) + 1);
+		bIncrement.Update();
 	}
 });

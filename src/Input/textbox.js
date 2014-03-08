@@ -40,6 +40,6 @@ Jewel.TextBox.prototype = {
 			element.addEventListener(events[i].event, events[i].callback);
 		}
 		
-		element.addEventListener("change", this.GetText);
+		element.addEventListener("keypress", this.GetText());
 	}
 };

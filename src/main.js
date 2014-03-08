@@ -18,7 +18,6 @@ Jewel.Add = function(container) {
 };
 
 Jewel.Paint = function() {
-	console.log("Paint");
 	var containers = Jewel.__containers;
 	for (var i = 0, l = containers.length; i < l; i++) {
 		if (document.body.contains(containers[i].__element)) {
