@@ -21,7 +21,7 @@ Jewel(function() {
 	
 	// Event Listeners
 	function addTextboxes(e) {
-		doc.Add(new Jewel.Text);
+		doc.Add(new Jewel.Atom);
 		for (var i = 0; i < 5; i++) {
 			doc.Add(new Jewel.TextBox);
 		}
