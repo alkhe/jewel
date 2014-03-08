@@ -1,14 +1,13 @@
 var doc = new Jewel.Viewport();
 Jewel(function() {
-	
-	// Elements
+		// Elements
 	var button1 = new Jewel.Button("Button 1");
 	var button2 = new Jewel.Button("Button 2!");
 	var textbox1 = new Jewel.TextBox("Default text");
 	var textbox2 = new Jewel.TextBox("Default text");
 	
 	// Text
-	textbox2.SetText("Wasopdijfaospdf");
+	textbox2.SetText("Default Text");
 	
 	// Events
 	button1.AddEvent("click", button1_click);
@@ -30,13 +29,13 @@ Jewel(function() {
 	// Event Listeners
 	function button1_click(e) {
 		doc.Add(new Jewel.Text());
-		for (var i=0; i<5; i++) {
+		for (var i = 0; i < 5; i++) {
 			doc.Add(new Jewel.TextBox());
 		}
 		Jewel.Update();
-	};
+	}
 	
 	function button2_click(e) {
 		alert("Hello!");
-	};
+	}
 });

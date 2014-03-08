@@ -23,5 +23,5 @@ Jewel.Text.prototype = {
 		if (!this.__element) return;
 		var element = this.__element;
 		element.innerHTML = this.__text;
-	},
+	}
 };

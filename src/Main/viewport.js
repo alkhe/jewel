@@ -5,7 +5,7 @@ Jewel.Viewport = function() {
 
 Jewel.Viewport.prototype = {
 	Add : function(control) {
-		if (this.__controls.indexOf(control)<0) {
+		if (this.__controls.indexOf(control) < 0) {
 			this.__controls.push(control);
 			return true;
 		}
@@ -21,7 +21,7 @@ Jewel.Viewport.prototype = {
 		if (!this.__element) return;
 		var element = this.__element;
 		var controls = this.__controls;
-		for (var i=0,l=controls.length; i<l; i++) {
+		for (var i = 0, l = controls.length; i < l; i++) {
 			if (element.contains(controls[i].__element)) {
 				controls[i].Update();
 			}
@@ -30,5 +30,5 @@ Jewel.Viewport.prototype = {
 				element.appendChild(controls[i].__element);
 			}
 		}
-	},
+	}
 };

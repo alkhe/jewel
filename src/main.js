@@ -1,4 +1,4 @@
-window.addEventListener("load",function() {
+window.AddEvent("load", function() {
 	Jewel.Load();
 });
 
@@ -11,16 +11,16 @@ Jewel.Load = function() {
 	Jewel.__callback();
 };
 
-Jewel.Add = function(new_viewport) {
-	if (Jewel.__viewports.indexOf(new_viewport)<0) {
-		Jewel.__viewports.push(new_viewport);
+Jewel.Add = function(viewport) {
+	if (Jewel.__viewports.indexOf(viewport) < 0) {
+		Jewel.__viewports.push(viewport);
 	}
 };
 
 Jewel.Paint = function() {
 	console.log("Paint");
 	var viewports = Jewel.__viewports;
-	for (var i=0,l=viewports.length; i<l; i++) {
+	for (var i = 0, l = viewports.length; i < l; i++) {
 		if (document.body.contains(viewports[i].__element)) {
 			document.body.removeChild(viewports[i].__element);
 		}
@@ -34,7 +34,7 @@ Jewel.Paint = function() {
 
 Jewel.Update = function() {
 	var viewports = Jewel.__viewports;
-	for (var i=0,l=viewports.length; i<l; i++) {
+	for (var i = 0, l = viewports.length; i < l; i++) {
 		viewports[i].Update();
 	}
 };
