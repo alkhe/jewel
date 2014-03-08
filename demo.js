@@ -10,6 +10,14 @@ Jewel(function() {
 	var bIncrement = new Jewel.Button;
 	var bCustom = new Jewel.Atom;
 
+	// CSS Styles
+	bIncrement.SetStyle("height", "23px");
+	bIncrement.SetStyle("width", "100px");
+	bIncrement.SetStyle("background", "#606060");
+	bIncrement.SetStyle("border", "1px solid #202020");
+	bIncrement.SetStyle("color", "#DEDEDE");
+	bIncrement.SetStyle("border-radius", "3px");
+
 	// Member Functions
 	bIncrement.SetText("1");
 	bCustom.SetText("I also add textboxes");
@@ -25,7 +33,7 @@ Jewel(function() {
 	frontend.Add(bCustom);
 	frontend.Add(bHello);
 	frontend.Add(new Jewel.Atom);
-	frontend.Add(new Jewel.InlineAtom("Click to increment ->"));
+	frontend.Add(new Jewel.Span("Click to increment ->"));
 	frontend.Add(bIncrement);
 	frontend.Add(new Jewel.Atom);
 	frontend.Add(tTextbox);

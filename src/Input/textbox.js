@@ -30,6 +30,7 @@ Jewel.TextBox.prototype = {
 	Update : function() {
 		if (!this.__element)
 			return;
+		this.GetText();
 		var element = this.__element;
 		element.type = "text";
 		element.value = this.__text;
@@ -39,7 +40,5 @@ Jewel.TextBox.prototype = {
 			element.removeEventListener(events[i].event, events[i].callback);
 			element.addEventListener(events[i].event, events[i].callback);
 		}
-		
-		element.addEventListener("change", this.GetText());
 	}
 };
