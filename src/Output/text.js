@@ -1,10 +1,10 @@
-Jewel.Text = function(text) {
+Jewel.Atom = function(text) {
 	this.__identifier = "text";
 	this.__text = text || "";
 	this.__element = undefined;
 };
 
-Jewel.Text.prototype = {
+Jewel.Atom.prototype = {
 	SetText : function(text) {
 		this.__text = text;
 		this.__update = true;

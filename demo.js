@@ -16,7 +16,7 @@ Jewel(function() {
 	// Adding all
 	doc.Add(button1);
 	doc.Add(button2);
-	doc.Add(new Jewel.Text("Hello world!"));
+	doc.Add(new Jewel.Atom("Hello world!"));
 	doc.Add(textbox1);
 	doc.Add(textbox2);
 	
