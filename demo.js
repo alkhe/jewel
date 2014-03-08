@@ -6,17 +6,21 @@ Jewel(function() {
 	var bHello = new Jewel.Button("Hello");
 	var tTextbox = new Jewel.TextBox("Default text");
 	var bIncrement = new Jewel.Button;
+	var bCustom = new Jewel.Atom;
 
 	// Member Functions
 	bIncrement.SetText("1");
+	bCustom.SetText("I also add textboxes");
 	
 	// Events
 	bAddTextboxes.AddEvent("click", addTextboxes);
+	bCustom.AddEvent("click", addTextboxes);
 	bHello.AddEvent("click", greet);
 	bIncrement.AddEvent("click", increment);
 	
 	// Adding To Container
 	frontend.Add(bAddTextboxes);
+	frontend.Add(bCustom);
 	frontend.Add(bHello);
 	frontend.Add(new Jewel.Atom);
 	frontend.Add(new Jewel.InlineAtom("Click to increment ->"));

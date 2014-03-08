@@ -1,4 +1,5 @@
 Jewel.Container = function() {
+	this.__identifier = "div";
 	this.__controls = [];
 	this.__element = undefined;
 };
@@ -13,7 +14,7 @@ Jewel.Container.prototype = {
 	},
 	
 	Paint : function() {
-		this.__element = document.createElement("div");
+		this.__element = document.createElement(this.__identifier);
 		this.Update();
 	},
 	

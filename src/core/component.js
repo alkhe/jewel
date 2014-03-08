@@ -1,20 +1,19 @@
-Jewel.TextBox = function(default_text) {
-	this.__identifier = "input";
-	this.__text = default_text || "";
+Jewel.Component = function() {
+	this.__identifier = "";
+	this.__text = text || "";
 	this.__element = undefined;
 	this.__events = [];
 };
 
-Jewel.TextBox.prototype = {
+Jewel.Component.prototype = {
 	SetText : function(text) {
 		this.__text = text;
 	},
 	
 	GetText : function() {
-		this.SetText(this.__element.value);
 		return this.__text;
 	},
-	
+
 	AddEvent : function(event, callback) {
 		this.__events.push({
 			event : event,
@@ -28,18 +27,14 @@ Jewel.TextBox.prototype = {
 	},
 	
 	Update : function() {
-		if (!this.__element)
-			return;
+		if (!this.__element) return;
 		var element = this.__element;
-		element.type = "text";
-		element.value = this.__text;
-		
+		element.innerHTML = this.__text;
+
 		var events = this.__events;
 		for (var i = 0, l = events.length; i < l; i++) {
 			element.removeEventListener(events[i].event, events[i].callback);
 			element.addEventListener(events[i].event, events[i].callback);
 		}
-		
-		element.addEventListener("change", this.GetText());
 	}
 };
