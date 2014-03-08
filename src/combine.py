@@ -12,7 +12,7 @@ if __name__ == "__main__":
 			for name in newdir:
 				stack.append(next + "/" + name)
 		elif os.path.isfile(next) and next.endswith(".js"):
-			fin = open(next,"r")
+			fin = open(next, "r")
 			fout.write("// %s\n" % next)
 			for line in fin:
 				fout.write(line)
@@ -22,6 +22,8 @@ if __name__ == "__main__":
 
 	with open(outputFile, "r") as f:
 		fullcode = f.read()
+
+	os.system("java -jar ../compiler.jar ../lib/jewel.js > ../lib/jewel-min.js")
 
 	#fout = open(outputFileMin, "wb");
 
@@ -39,6 +41,4 @@ if __name__ == "__main__":
 	#data = response.read()
 	#fout.write(data)
 	#conn.close()
-	os.system("java -jar ../compiler.jar ../lib/jewel.js >> ../lib/jewel-min.js")
-
 	#fout.close()
