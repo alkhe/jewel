@@ -18,7 +18,7 @@ Jewel.TextBox.prototype = {
 	AddEvent : function(event, callback) {
 		this.__events.push({
 			event : event,
-			callback : callback,
+			callback : callback
 		});
 	},
 	
@@ -34,14 +34,12 @@ Jewel.TextBox.prototype = {
 		element.type = "text";
 		element.value = this.__text;
 		
-		// Events
 		var events = this.__events;
 		for (var i = 0, l = events.length; i < l; i++) {
-			element.RemoveEvent(events[i].event, events[i].callback);
-			element.AddEvent(events[i].event, events[i].callback);
+			element.removeEventListener(events[i].event, events[i].callback);
+			element.addEventListener(events[i].event, events[i].callback);
 		}
 		
-		// Update text event
-		element.AddEvent("change", this.__update);
+		element.addEventListener("change", this.GetText);
 	}
 };

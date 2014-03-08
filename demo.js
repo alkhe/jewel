@@ -1,8 +1,8 @@
 var doc = new Jewel.Viewport();
 Jewel(function() {
 		// Elements
-	var button1 = new Jewel.Button("Button 1");
-	var button2 = new Jewel.Button("Button 2!");
+	var button1 = new Jewel.Button("Add 5 Textboxes");
+	var button2 = new Jewel.Button("Hello");
 	var textbox1 = new Jewel.TextBox("Default text");
 	var textbox2 = new Jewel.TextBox("Default text");
 	
@@ -28,9 +28,9 @@ Jewel(function() {
 	
 	// Event Listeners
 	function button1_click(e) {
-		doc.Add(new Jewel.Text());
+		doc.Add(new Jewel.Text);
 		for (var i = 0; i < 5; i++) {
-			doc.Add(new Jewel.TextBox());
+			doc.Add(new Jewel.TextBox);
 		}
 		Jewel.Update();
 	}

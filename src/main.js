@@ -1,4 +1,4 @@
-window.AddEvent("load", function() {
+window.addEventListener("load", function() {
 	Jewel.Load();
 });
 

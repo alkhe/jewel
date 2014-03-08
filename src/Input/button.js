@@ -17,7 +17,7 @@ Jewel.Button.prototype = {
 	AddEvent : function(event, callback) {
 		this.__events.push({
 			event : event,
-			callback : callback,
+			callback : callback
 		});
 	},
 	
@@ -34,8 +34,8 @@ Jewel.Button.prototype = {
 		// Events
 		var events = this.__events;
 		for (var i = 0, l = events.length; i < l; i++) {
-			element.RemoveEvent(events[i].event, events[i].callback);
-			element.AddEvent(events[i].event, events[i].callback);
+			element.removeEventListener(events[i].event, events[i].callback);
+			element.addEventListener(events[i].event, events[i].callback);
 		}
 	}
 };
