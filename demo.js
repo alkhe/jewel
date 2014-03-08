@@ -5,6 +5,8 @@ Jewel(function() {
 	var bAddTextboxes = new Jewel.Button("Add 5 Textboxes");
 	var bHello = new Jewel.Button("Hello");
 	var tTextbox = new Jewel.TextBox("Default text");
+
+	// Initialize Without Text
 	var bIncrement = new Jewel.Button;
 	var bCustom = new Jewel.Atom;
 
@@ -23,7 +25,7 @@ Jewel(function() {
 	frontend.Add(bCustom);
 	frontend.Add(bHello);
 	frontend.Add(new Jewel.Atom);
-	frontend.Add(new Jewel.InlineAtom("Click to increment ->"));
+	frontend.Add(new Jewel.Span("Click to increment ->"));
 	frontend.Add(bIncrement);
 	frontend.Add(new Jewel.Atom);
 	frontend.Add(tTextbox);
