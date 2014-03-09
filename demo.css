@@ -1,0 +1,81 @@
+* {
+	font: 14px Helvetica, Arial, Consolas, sans-serif;
+	text-shadow: 0 0 5px rgba(240, 240, 240, .5);
+	transition: .2s;
+	-moz-transition: .2s;
+	-webkit-transition: .2s;
+	-ms-transition: .2s;
+	-o-transition: .2s;
+	-khtml-transition: .2s;
+}
+
+.transparent {
+	opacity: 0;
+	transition: .3s cubic-bezier(0, .35, .25, .65);
+	-moz-transition: .3s cubic-bezier(0, .35, .25, .65);
+	-webkit-transition: .3s cubic-bezier(0, .35, .25, .65);
+	-ms-transition: .3s cubic-bezier(0, .35, .25, .65);
+	-o-transition: .3s cubic-bezier(0, .35, .25, .65);
+	-khtml-transition: .3s cubic-bezier(0, .35, .25, .65);
+}
+
+::selection {
+	background: rgba(50, 90, 150, .4);
+}
+::moz-selection {
+	background: rgba(50, 90, 150, .4);
+}
+
+html {
+	background: #303030;
+	color: #FFFFFF;
+}
+
+input, button {
+	background: #404040;
+	border: 1px solid #282828;
+	outline: none;
+	color: #DDDDDD;
+	padding: 5px;
+}
+
+input:hover, button:hover {
+	background: #505050;
+	border: 1px solid #282828;
+}
+
+input:focus {
+	background: #484848;
+	border: 1px solid #2090F0;
+}
+
+button:focus:active {
+	background: #383838;
+	border: 1px solid #2090F0;
+}
+
+button:focus {
+	background: #303030;
+	border: 1px solid #0070D0;
+}
+
+.dark {
+	display: inline-block;
+	margin: 2px;
+	cursor: default;
+	padding: 5px;
+	background: rgba(40, 40, 40, .9);	
+	border: 1px solid rgba(120, 120, 120, .8);	
+	border-radius: 2px;
+	outline: none;
+}
+
+.dark:hover {
+	background: rgba(50, 50, 50, .9);	
+	border: 1px solid rgba(120, 120, 120, 1);	
+}
+
+.dark:active {
+	background: rgba(30, 30, 30, .9);	
+	border: 1px solid rgba(32, 144, 240, .8);	
+}
