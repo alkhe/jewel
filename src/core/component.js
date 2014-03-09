@@ -1,5 +1,11 @@
 Jewel.Component = function() {
-
+	this.__identifier = "";
+	this.__text = "";
+	this.__element = undefined;
+	this.__id = "";
+	this.__classes = [];
+	this.__events = [];
+	this.__styles = [];
 };
 
 Jewel.Component.prototype = {
