@@ -1,56 +1,78 @@
-Jewel
-=====
+#Jewel
+<br />
+>A lightweight JavaScript library that modulates and replaces conventional HTML UI design.
 
-A lightweight JavaScript library that modulates and replaces conventional HTML UI design.
+Similar to libraries like Qt, Swing, and .NET, in which controls can be declared as objects and added to a hierarchial UI layout, and components can be inherited and derived for extended use.
 
-This is similar to libraries like Qt, Swing, and .NET, where controls can be declared as objects and added to a hierarchial UI layout.
+To create a simple webpage, only two file inclusions are required.
 
-To create a simple webpage, the following is all that needs to be in the HTML file.
+    <html>
+    <head>
+    	<script type="text/javascript" src="jewel.js"></script>
+    	<script type="text/javascript" src="myscripts.js"></script>
+    </head>
+    </html>
 
-<html>
-<head>
-	<script type="text/javascript" src="jewel.js"></script>
-	<script type="text/javascript" src="myscripts.js"></script>
-</head>
-</html>
+Everything can then be managed in your JavaScript file.
 
-Everything can then be managed in the JavaScript file.
-
-First, a Container can be created. Currently, the Container only serves as a handler to the body.
-
-var doc = new Jewel.Container();
-
-//All of the "onload" procedures can be placed in the Jewel.Load callback.
-
-Jewel.Load = function() {
-	var btn1 = new Jewel.Button();
-	var btn2 = new Jewel.Button();
-	var txt = new Jewel.Textbox();
-	
-	btn1.SetText("Add 5 Textboxes");
-	btn1.AddEvent("onclick", 'btn1_click()');
-	btn2.SetText("Hello");
-	btn2.AddEvent("onclick", 'btn2_click()');
-	txt.SetText("Default Text");
-	
-	//Add these objects to the document
-	doc.Add(btn1);
-	doc.Add(btn2);
-	doc.Add(new Jewel.Line());
-	doc.Add(txt);
-	
-	doc.Invalidate(); //To repaint, just like in any other library
-}
-
-//Callback Functions
-function btn1_click() {
-	doc.Add(new Jewel.Line());
-	for (var j = 0; j < 5; j++) {
-		doc.Add(new Jewel.Textbox());
-	}
-	doc.Invalidate();
-}
-
-function btn2_click() {
-	alert('Hello!');
-}
+    // Initialize a Jewel with a callback function
+    Jewel(function() {
+    
+        // Create a container
+        var frontend = new Jewel.Container;
+    
+        // Declare elements to be added to the container
+    	var bHello = new Jewel.Button("Hello");
+    	var tTextbox = new Jewel.TextBox("Default text");
+    
+    	// Initialize Without Text
+    	var bGoodbye = new Jewel.Button;
+    	var bDiv = new Jewel.Atom;
+    
+    	// Set CSS Style by DOM
+    	tTextbox.SetStyle([
+    		["padding-top", "20px"],
+    		["padding-bottom", "20px"]
+    		]);
+    
+    	// Set CSS Style by Class
+    	bDiv.AddClass(["myclass"]);
+    
+    	// Set Text
+    	bGoodbye.SetText("Goodbye");
+    	bDiv.SetText("This is a div");
+    	
+    	// Add Event callbacks
+        bHello.AddEvent("click", greet);
+        bGoodbye.AddEvent("click", farewell);
+    	bDiv.AddEvent("click", divclicked);
+    	
+    	// Adding To Container
+    	frontend.Add(bHello);
+    	frontend.Add(bGoodbye);
+        
+        // Empty div as new line
+    	frontend.Add(new Jewel.Atom);
+        
+    	frontend.Add(tTextbox);
+    	frontend.Add(bDiv);
+    
+    	// Add container to Mainframe
+    	Jewel.Add(frontend);
+    	
+    	// Paint
+    	Jewel.Paint();
+    	
+    	// Event callback definitions
+    	function greet(e) {
+    		alert("Hello!");
+    	}
+        
+        function farewell(e) {
+        	alert("Goodbye!");
+    	}
+        
+        function divclicked(e) {
+        	alert("Div clicked!");
+    	}
+    });
