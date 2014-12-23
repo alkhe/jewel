@@ -1,62 +1,60 @@
 Jewel.Component = function() {
-	this.__identifier = "";
-	this.__text = "";
+	this.__identifier = '';
+	this.__text = '';
 	this.__element = undefined;
-	this.__id = "";
+	this.__id = '';
 	this.__classes = [];
 	this.__events = [];
 	this.__styles = [];
 };
 
 Jewel.Component.prototype = {
-	SetText : function(text) {
-		this.__text = text;
-	},
-
-	GetText : function() {
+	text: function(text) {
+		if (!(text == null || text == undefined)) {
+			this.__text = text;
+		}
 		return this.__text;
 	},
 
-	AddEvent : function(event, callback) {
+	addEvent: function(event, callback) {
 		this.__events.push({
-			event : event,
-			callback : callback
+			event: event,
+			callback: callback
 		});
 	},
 
-	SetStyle : function(styles) {
-		this.__styles = styles;
-	},
-
-	GetStyle: function() {
+	style: function(styles) {
+		if (!(styles == null || styles == undefined)) {
+			this.__styles = styles;
+		}
 		return this.__styles;
 	},
 
-	AddClass: function(classes) {
+	addClass: function(classes) {
 		for (var i = 0, l = classes.length; i < l; i++) {
 			this.__classes.push(classes[i]);
 		}
 	},
 
-	RemoveClass: function(classes) {
+	removeClass: function(classes) {
 		for (var i = 0, l = classes.length; i < l; i++) {
 			this.__classes.splice(this.__classes.indexOf(classes[i]));
 		}
 	},
 
-	Paint : function() {
+	paint: function() {
 		this.__element = document.createElement(this.__identifier);
-		this.Update();
+		this.update();
 	},
-	
-	Update : function() {
+
+	update: function() {
 		if (!this.__element) return;
 		var element = this.__element;
 		element.innerHTML = this.__text;
-		this.Behave();
+		this.behave();
 	},
 
-	Behave : function() {
+	behave: function() {
 		if (!this.__element) return;
 		var element = this.__element;
 

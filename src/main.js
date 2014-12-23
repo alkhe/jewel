@@ -1,39 +1,39 @@
-window.addEventListener("load", function() {
-	Jewel.Load();
+window.addEventListener('load', function() {
+	Jewel.load();
 });
 
-var Jewel = function(callback) {
+window.Jewel = function(callback) {
 	Jewel.__callback = callback;
 	Jewel.__containers = [];
 };
 
-Jewel.Load = function() {
+Jewel.load = function() {
 	Jewel.__callback();
 };
 
-Jewel.Add = function(container) {
+Jewel.add = function(container) {
 	if (Jewel.__containers.indexOf(container) < 0) {
 		Jewel.__containers.push(container);
 	}
 };
 
-Jewel.Paint = function() {
+Jewel.paint = function() {
 	var containers = Jewel.__containers;
 	for (var i = 0, l = containers.length; i < l; i++) {
 		if (document.body.contains(containers[i].__element)) {
 			document.body.removeChild(containers[i].__element);
 		}
-		containers[i].Paint();
-		
+		containers[i].paint();
+
 		if (!document.body.contains(containers[i].__element)) {
 			document.body.appendChild(containers[i].__element);
 		}
 	}
 };
 
-Jewel.Update = function() {
+Jewel.update = function() {
 	var containers = Jewel.__containers;
 	for (var i = 0, l = containers.length; i < l; i++) {
-		containers[i].Update();
+		containers[i].update();
 	}
 };

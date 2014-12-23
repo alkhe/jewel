@@ -2,7 +2,7 @@ import os, urllib.parse, http.client
 
 if __name__ == "__main__":
 	outputFile = "../lib/jewel.js"
-	outputFileMin = "../lib/jewel-min.js"
+	outputFileMin = "../lib/jewel.min.js"
 	fout = open(outputFile, "w")
 	stack = ["."]
 	while len(stack) > 0:
@@ -10,6 +10,7 @@ if __name__ == "__main__":
 		if os.path.isdir(next):
 			newdir = os.listdir(next)
 			for name in newdir:
+				print(name)
 				stack.append(next + "/" + name)
 		elif os.path.isfile(next) and next.endswith(".js"):
 			fin = open(next, "r")
@@ -20,8 +21,8 @@ if __name__ == "__main__":
 			fin.close()
 	fout.close()
 
-	with open(outputFile, "r") as f:
-		fullcode = f.read()
+	# with open(outputFile, "r") as f:
+	# 	fullcode = f.read()
 
 	os.system("java -jar ../compiler.jar ../lib/jewel.js > ../lib/jewel-min.js")
 
