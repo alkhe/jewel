@@ -11,15 +11,10 @@ Jewel.TextBox = function(text) {
 
 Jewel.TextBox.prototype = new Jewel.Component;
 
-Jewel.TextBox.prototype.GetText = function() {
-	this.setText(this.__element.value);
-	return this.__text;
-}
-
-Jewel.TextBox.prototype.Update = function() {
+Jewel.TextBox.prototype.update = function() {
 	if (!this.__element) return;
 	if (!this.__first) {
-		this.getText();
+		this.text();
 	}
 	this.__first = false;
 	var element = this.__element;

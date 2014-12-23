@@ -11,12 +11,13 @@ Jewel.Component = function() {
 Jewel.Component.prototype = {
 	text: function(text) {
 		if (!(text == null || text == undefined)) {
+			// text = String(text);
 			this.__text = text;
 		}
 		return this.__text;
 	},
 
-	addEvent: function(event, callback) {
+	on: function(event, callback) {
 		this.__events.push({
 			event: event,
 			callback: callback
@@ -56,22 +57,22 @@ Jewel.Component.prototype = {
 
 	behave: function() {
 		if (!this.__element) return;
-		var element = this.__element;
+		var el = this.__element;
 
 		var styles = this.__styles;
-		for (var i = 0, l = styles.length; i < l; i++) {
-			element.style[styles[i][0]] = styles[i][1];
+		for (var i = 0; i < styles.length; i++) {
+			el.style[styles[i][0]] = styles[i][1];
 		}
 
 		var classes = this.__classes;
-		for (var i = 0, l = classes.length; i < l; i++) {
-			element.classList.add(classes[i]);
+		for (var i = 0; i < classes.length; i++) {
+			el.classList.add(classes[i]);
 		}
 
 		var events = this.__events;
-		for (var i = 0, l = events.length; i < l; i++) {
-			element.removeEventListener(events[i].event, events[i].callback);
-			element.addEventListener(events[i].event, events[i].callback);
+		for (var i = 0; i < events.length; i++) {
+			el.removeEventListener(events[i].event, events[i].callback);
+			el.addEventListener(events[i].event, events[i].callback);
 		}
 	}
 };

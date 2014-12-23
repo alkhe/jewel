@@ -24,7 +24,7 @@ if __name__ == "__main__":
 	# with open(outputFile, "r") as f:
 	# 	fullcode = f.read()
 
-	os.system("java -jar ../compiler.jar ../lib/jewel.js > ../lib/jewel-min.js")
+	os.system("cd ../lib && uglify -s jewel.js -o jewel.min.js")
 
 	#fout = open(outputFileMin, "wb");
 

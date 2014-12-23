@@ -11,55 +11,64 @@ Jewel.FadeTextBox = function(text) {
 
 Jewel.FadeTextBox.prototype = new Jewel.TextBox;
 
-Jewel.FadeTextBox.prototype.Paint = function() {
+Jewel.FadeTextBox.prototype.paint = function() {
 	this.__element = document.createElement(this.__identifier);
 	this.addClass(['transparent']);
 	this.update();
 	var element = this.__element;
-	setTimeout(function() {element.style.opacity = 1}, 0);
-}
+	setTimeout(function() {
+		element.style.opacity = 1;
+	}, 0);
+};
 
 Jewel(function() {
-	var frontend = new Jewel.Container;
+	var frontend = new Jewel.Container,
 
 	// Frontend Elements
-	var bAddTextboxes = new Jewel.Button('Smooth Add Textboxes');
-	var bHello = new Jewel.Button('Hello');
-	var tTextbox = new Jewel.TextBox('Default text');
+		addboxes = new Jewel.Button('Smooth Add Textboxes'),
+		hello = new Jewel.Button('Hello'),
+		mybox = new Jewel.TextBox('Default text'),
 
 	// Initialize Without Text
-	var bIncrement = new Jewel.Button;
-	var bCustom = new Jewel.Atom;
+		counter = new Jewel.Button,
+		custom = new Jewel.Atom;
+
+	window.counter = counter;
 
 	// CSS DOM Styles
-	tTextbox.style([
-		['padding-top', '20px'],
-		['padding-bottom', '20px']
-		]);
+	mybox.style({
+		'padding-top': '40px',
+		'padding-bottom': '20px'
+	});
 
 	// CSS Class Styles
-	bCustom.addClass(['dark']);
+	custom.addClass(['dark']);
 
 	// Member Functions
-	bIncrement.text('1');
-	bCustom.text('Hard Add textboxes');
+	counter.text('1');
+	custom.text('Hard Add textboxes');
 
 	// Events
-	bAddTextboxes.addEvent('click', addSmooth);
-	bCustom.addEvent('click', addHard);
-	bHello.addEvent('click', greet);
-	bIncrement.addEvent('click', increment);
+	addboxes.on('click', addSmooth);
+	custom.on('click', addHard);
+	hello.on('click', function() {
+		alert('Hello!');
+	});
+	counter.on('click', function() {
+		counter.text(~~counter.text() + 1);
+		counter.update();
+	});
 
 	// Adding To Container
-	frontend.add(bAddTextboxes);
-	frontend.add(bHello);
+	frontend.add(addboxes);
+	frontend.add(hello);
 	frontend.add(new Jewel.Atom);
-	frontend.add(bCustom);
+	frontend.add(custom);
 	frontend.add(new Jewel.Atom);
 	frontend.add(new Jewel.Span('Click to increment: '));
-	frontend.add(bIncrement);
+	frontend.add(counter);
 	frontend.add(new Jewel.Atom);
-	frontend.add(tTextbox);
+	frontend.add(mybox);
 
 	// Add to Jewel Mainframe
 	Jewel.add(frontend);
@@ -68,39 +77,25 @@ Jewel(function() {
 	Jewel.paint();
 
 	// Event Listeners
-	var counter = 5;
+	var it = 0;
 
-	function addSmooth(e) {
-		if (counter == 5) {
-			counter = 0;
+	var addSmooth = function() {
+			if (it < 5) {
+				it++;
+				frontend.add(new Jewel.FadeTextBox);
+				setTimeout(addSmooth, 50);
+				frontend.update();
+			}
+			else {
+				it = 0;
+				frontend.add(new Jewel.Atom);
+			}
+		},
+		addHard = function() {
+			for (var i = 0; i < 5; i++) {
+				frontend.add(new Jewel.TextBox);
+			}
 			frontend.add(new Jewel.Atom);
-			setTimeout(addSmoothExtension, 50);
-		}
-	}
-
-	function addSmoothExtension() {
-		counter += 1;
-		frontend.add(new Jewel.FadeTextBox);
-		frontend.update();
-		if (counter < 5) {
-			setTimeout(addSmoothExtension, 50);
-		}
-	};
-
-	function addHard() {
-		frontend.add(new Jewel.Atom);
-		for (var i = 0; i < 5; i++) {
-			frontend.add(new Jewel.TextBox);
-		}
-		frontend.update();
-	};
-
-	function greet(e) {
-		alert('Hello!');
-	}
-
-	function increment(e) {
-		bIncrement.text(parseInt(bIncrement.text()) + 1);
-		bIncrement.update();
-	}
+			frontend.update();
+		};
 });
