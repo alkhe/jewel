@@ -1,30 +1,30 @@
 Jewel.Container = function() {
-	this.__identifier = 'div';
-	this.__controls = [];
-	this.__element = undefined;
+	this._identifier = 'div';
+	this._controls = [];
+	this._element = undefined;
 };
 
 Jewel.Container.prototype = new Jewel.Component;
 
 Jewel.Container.prototype.add = function(control) {
-	if (this.__controls.indexOf(control) < 0) {
-		this.__controls.push(control);
+	if (this._controls.indexOf(control) < 0) {
+		this._controls.push(control);
 		return true;
 	}
 	return false;
 }
 
 Jewel.Container.prototype.update = function() {
-	if (!this.__element) return;
-	var element = this.__element;
-	var controls = this.__controls;
+	if (!this._element) return;
+	var element = this._element;
+	var controls = this._controls;
 	for (var i = 0, l = controls.length; i < l; i++) {
-		if (element.contains(controls[i].__element)) {
+		if (element.contains(controls[i]._element)) {
 			controls[i].update();
 		}
 		else {
 			controls[i].paint();
-			element.appendChild(controls[i].__element);
+			element.appendChild(controls[i]._element);
 		}
 	}
 	this.behave();

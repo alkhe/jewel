@@ -1,11 +1,11 @@
 Jewel.Atom = function(text) {
-	this.__identifier = 'div';
-	this.__text = text || '';
-	this.__element = undefined;
-	this.__id = '';
-	this.__classes = [];
-	this.__events = [];
-	this.__styles = [];
+	this._identifier = 'div';
+	this._text = text || '';
+	this._element = undefined;
+	this._id = '';
+	this._classes = [];
+	this._events = [];
+	this._styles = [];
 };
 
 Jewel.Atom.prototype = new Jewel.Component;

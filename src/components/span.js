@@ -1,11 +1,11 @@
 Jewel.Span = function(text) {
-	this.__identifier = 'span';
-	this.__text = text || '';
-	this.__element = undefined;
-	this.__id = '';
-	this.__classes = [];
-	this.__events = [];
-	this.__styles = [];
+	this._identifier = 'span';
+	this._text = text || '';
+	this._element = undefined;
+	this._id = '';
+	this._classes = [];
+	this._events = [];
+	this._styles = [];
 };
 
 Jewel.Span.prototype = new Jewel.Component;

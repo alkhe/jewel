@@ -3,36 +3,36 @@ window.addEventListener('load', function() {
 });
 
 window.Jewel = function(callback) {
-	Jewel.__callback = callback;
-	Jewel.__containers = [];
+	Jewel._callback = callback;
+	Jewel._containers = [];
 };
 
 Jewel.load = function() {
-	Jewel.__callback();
+	Jewel._callback();
 };
 
 Jewel.add = function(container) {
-	if (Jewel.__containers.indexOf(container) < 0) {
-		Jewel.__containers.push(container);
+	if (Jewel._containers.indexOf(container) < 0) {
+		Jewel._containers.push(container);
 	}
 };
 
 Jewel.paint = function() {
-	var containers = Jewel.__containers;
+	var containers = Jewel._containers;
 	for (var i = 0, l = containers.length; i < l; i++) {
-		if (document.body.contains(containers[i].__element)) {
-			document.body.removeChild(containers[i].__element);
+		if (document.body.contains(containers[i]._element)) {
+			document.body.removeChild(containers[i]._element);
 		}
 		containers[i].paint();
 
-		if (!document.body.contains(containers[i].__element)) {
-			document.body.appendChild(containers[i].__element);
+		if (!document.body.contains(containers[i]._element)) {
+			document.body.appendChild(containers[i]._element);
 		}
 	}
 };
 
 Jewel.update = function() {
-	var containers = Jewel.__containers;
+	var containers = Jewel._containers;
 	for (var i = 0, l = containers.length; i < l; i++) {
 		containers[i].update();
 	}

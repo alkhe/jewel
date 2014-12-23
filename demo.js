@@ -1,21 +1,21 @@
 // Textbox class to fade in upon instantiation
 Jewel.FadeTextBox = function(text) {
-	this.__identifier = 'input';
-	this.__text = text || '';
-	this.__element = undefined;
-	this.__id = '';
-	this.__classes = [];
-	this.__events = [];
-	this.__styles = [];
+	this._identifier = 'input';
+	this._text = text || '';
+	this._element = undefined;
+	this._id = '';
+	this._classes = [];
+	this._events = [];
+	this._styles = [];
 }
 
 Jewel.FadeTextBox.prototype = new Jewel.TextBox;
 
 Jewel.FadeTextBox.prototype.paint = function() {
-	this.__element = document.createElement(this.__identifier);
+	this._element = document.createElement(this._identifier);
 	this.addClass(['transparent']);
 	this.update();
-	var element = this.__element;
+	var element = this._element;
 	setTimeout(function() {
 		element.style.opacity = 1;
 	}, 0);
@@ -33,7 +33,28 @@ Jewel(function() {
 		counter = new Jewel.Button,
 		custom = new Jewel.Atom;
 
-	window.counter = counter;
+	// Event Listeners
+	var it = 0;
+
+	var addSmooth = function() {
+		if (it < 5) {
+			it++;
+			frontend.add(new Jewel.FadeTextBox);
+			setTimeout(addSmooth, 50);
+			frontend.update();
+		}
+		else {
+			it = 0;
+			frontend.add(new Jewel.Atom);
+		}
+	},
+	addHard = function() {
+		for (var i = 0; i < 5; i++) {
+			frontend.add(new Jewel.TextBox);
+		}
+		frontend.add(new Jewel.Atom);
+		frontend.update();
+	};
 
 	// CSS DOM Styles
 	mybox.style({
@@ -69,6 +90,7 @@ Jewel(function() {
 	frontend.add(counter);
 	frontend.add(new Jewel.Atom);
 	frontend.add(mybox);
+	frontend.add(new Jewel.Atom);
 
 	// Add to Jewel Mainframe
 	Jewel.add(frontend);
@@ -76,26 +98,4 @@ Jewel(function() {
 	// Paint
 	Jewel.paint();
 
-	// Event Listeners
-	var it = 0;
-
-	var addSmooth = function() {
-			if (it < 5) {
-				it++;
-				frontend.add(new Jewel.FadeTextBox);
-				setTimeout(addSmooth, 50);
-				frontend.update();
-			}
-			else {
-				it = 0;
-				frontend.add(new Jewel.Atom);
-			}
-		},
-		addHard = function() {
-			for (var i = 0; i < 5; i++) {
-				frontend.add(new Jewel.TextBox);
-			}
-			frontend.add(new Jewel.Atom);
-			frontend.update();
-		};
 });
