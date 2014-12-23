@@ -1,11 +1,11 @@
 Jewel.Button = function(text) {
-	this._identifier = 'button';
-	this._text = text || '';
-	this._element = undefined;
-	this._id = '';
-	this._classes = [];
-	this._events = [];
-	this._styles = [];
+	this.$identifier = 'button';
+	this.$text = text || '';
+	this.$element = undefined;
+	this.$id = '';
+	this.$classes = [];
+	this.$events = [];
+	this.$styles = [];
 };
 
 Jewel.Button.prototype = new Jewel.Component;

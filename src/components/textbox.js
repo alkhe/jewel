@@ -1,24 +1,24 @@
 Jewel.TextBox = function(text) {
-	this._identifier = 'input';
-	this._first = true;
-	this._text = text || '';
-	this._element = undefined;
-	this._id = '';
-	this._classes = [];
-	this._events = [];
-	this._styles = [];
+	this.$identifier = 'input';
+	this.$first = true;
+	this.$text = text || '';
+	this.$element = undefined;
+	this.$id = '';
+	this.$classes = [];
+	this.$events = [];
+	this.$styles = [];
 };
 
 Jewel.TextBox.prototype = new Jewel.Component;
 
 Jewel.TextBox.prototype.update = function() {
-	if (!this._element) return;
-	if (!this._first) {
+	if (!this.$element) return;
+	if (!this.$first) {
 		this.text();
 	}
-	this._first = false;
-	var element = this._element;
+	this.$first = false;
+	var element = this.$element;
 	element.type = 'text';
-	element.value = this._text;
+	element.value = this.$text;
 	this.behave();
 }

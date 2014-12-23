@@ -11,12 +11,18 @@
 
 .transparent {
 	opacity: 0;
-	transition: .3s cubic-bezier(0, .35, .25, .65);
-	-moz-transition: .3s cubic-bezier(0, .35, .25, .65);
 	-webkit-transition: .3s cubic-bezier(0, .35, .25, .65);
+	-khtml-transition: .3s cubic-bezier(0, .35, .25, .65);
+	-moz-transition: .3s cubic-bezier(0, .35, .25, .65);
 	-ms-transition: .3s cubic-bezier(0, .35, .25, .65);
 	-o-transition: .3s cubic-bezier(0, .35, .25, .65);
-	-khtml-transition: .3s cubic-bezier(0, .35, .25, .65);
+	transition: .3s cubic-bezier(0, .35, .25, .65);
+	-webkit-transition: opacity .5s  cubic-bezier(0, .35, .25, .65);
+	-khtml-transition: opacity .5s cubic-bezier(0, .35, .25, .65);
+	-moz-transition: opacity .5s cubic-bezier(0, .35, .25, .65);
+	-ms-transition: opacity .5s cubic-bezier(0, .35, .25, .65);
+	-o-transition: opacity .5s cubic-bezier(0, .35, .25, .65);
+	transition: opacity .5s cubic-bezier(0, .35, .25, .65);
 }
 
 ::selection {
@@ -64,18 +70,18 @@ button:focus {
 	margin: 2px;
 	cursor: default;
 	padding: 5px;
-	background: rgba(40, 40, 40, .9);	
-	border: 1px solid rgba(120, 120, 120, .8);	
+	background: rgba(40, 40, 40, .9);
+	border: 1px solid rgba(120, 120, 120, .8);
 	border-radius: 2px;
 	outline: none;
 }
 
 .dark:hover {
-	background: rgba(50, 50, 50, .9);	
-	border: 1px solid rgba(120, 120, 120, 1);	
+	background: rgba(50, 50, 50, .9);
+	border: 1px solid rgba(120, 120, 120, 1);
 }
 
 .dark:active {
-	background: rgba(30, 30, 30, .9);	
-	border: 1px solid rgba(32, 144, 240, .8);	
+	background: rgba(30, 30, 30, .9);
+	border: 1px solid rgba(32, 144, 240, .8);
 }

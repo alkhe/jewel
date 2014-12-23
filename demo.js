@@ -1,21 +1,21 @@
 // Textbox class to fade in upon instantiation
 Jewel.FadeTextBox = function(text) {
-	this._identifier = 'input';
-	this._text = text || '';
-	this._element = undefined;
-	this._id = '';
-	this._classes = [];
-	this._events = [];
-	this._styles = [];
+	this.$identifier = 'input';
+	this.$text = text || '';
+	this.$element = undefined;
+	this.$id = '';
+	this.$classes = [];
+	this.$events = [];
+	this.$styles = [];
 }
 
 Jewel.FadeTextBox.prototype = new Jewel.TextBox;
 
 Jewel.FadeTextBox.prototype.paint = function() {
-	this._element = document.createElement(this._identifier);
+	this.$element = document.createElement(this.$identifier);
 	this.addClass(['transparent']);
 	this.update();
-	var element = this._element;
+	var element = this.$element;
 	setTimeout(function() {
 		element.style.opacity = 1;
 	}, 0);
@@ -40,7 +40,7 @@ Jewel(function() {
 		if (it < 5) {
 			it++;
 			frontend.add(new Jewel.FadeTextBox);
-			setTimeout(addSmooth, 50);
+			setTimeout(addSmooth, 100);
 			frontend.update();
 		}
 		else {

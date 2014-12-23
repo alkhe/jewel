@@ -1,24 +1,24 @@
 Jewel.Component = function() {
-	this._identifier = '';
-	this._text = '';
-	this._element = undefined;
-	this._id = '';
-	this._classes = [];
-	this._events = [];
-	this._styles = [];
+	this.$identifier = '';
+	this.$text = '';
+	this.$element = undefined;
+	this.$id = '';
+	this.$classes = [];
+	this.$events = [];
+	this.$styles = [];
 };
 
 Jewel.Component.prototype = {
 	text: function(text) {
 		if (!(text == null || text == undefined)) {
 			// text = String(text);
-			this._text = text;
+			this.$text = text;
 		}
-		return this._text;
+		return this.$text;
 	},
 
 	on: function(event, callback) {
-		this._events.push({
+		this.$events.push({
 			event: event,
 			callback: callback
 		});
@@ -26,50 +26,50 @@ Jewel.Component.prototype = {
 
 	style: function(styles) {
 		if (!(styles == null || styles == undefined)) {
-			this._styles = styles;
+			this.$styles = styles;
 		}
-		return this._styles;
+		return this.$styles;
 	},
 
-	addClass: function(classes) {
-		for (var i = 0, l = classes.length; i < l; i++) {
-			this._classes.push(classes[i]);
+	addClass: function(cl) {
+		for (var i = 0; i < cl; i++) {
+			this.$classes.push(cl[i]);
 		}
 	},
 
-	removeClass: function(classes) {
-		for (var i = 0, l = classes.length; i < l; i++) {
-			this._classes.splice(this._classes.indexOf(classes[i]));
+	removeClass: function(cl) {
+		for (var i = 0; i < cl; i++) {
+			this.$classes.splice(this.$classes.indexOf(cl[i]));
 		}
 	},
 
 	paint: function() {
-		this._element = document.createElement(this._identifier);
+		this.$element = document.createElement(this.$identifier);
 		this.update();
 	},
 
 	update: function() {
-		if (!this._element) return;
-		var element = this._element;
-		element.innerHTML = this._text;
+		if (!this.$element) return;
+		var el = this.$element;
+		el.innerHTML = this.$text;
 		this.behave();
 	},
 
 	behave: function() {
-		if (!this._element) return;
-		var el = this._element;
+		if (!this.$element) return;
+		var el = this.$element;
 
-		var styles = this._styles;
-		for (var i = 0; i < styles.length; i++) {
-			el.style[styles[i][0]] = styles[i][1];
+		var st = this.$styles;
+		for (var i = 0; i < st.length; i++) {
+			el.style[st[i][0]] = st[i][1];
 		}
 
-		var classes = this._classes;
-		for (var i = 0; i < classes.length; i++) {
-			el.classList.add(classes[i]);
+		var cl = this.$classes;
+		for (var i = 0; i < cl.length; i++) {
+			el.classList.add(cl[i]);
 		}
 
-		var events = this._events;
+		var events = this.$events;
 		for (var i = 0; i < events.length; i++) {
 			el.removeEventListener(events[i].event, events[i].callback);
 			el.addEventListener(events[i].event, events[i].callback);
